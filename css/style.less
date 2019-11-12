@@ -1,0 +1,181 @@
+a{text-decoration:none;color:#fff;}
+.topbar-wrapper{background-color: #000;}
+.topbar{
+    max-width:1200px;
+    margin:0 auto;
+    height:48px;
+    display: flex;
+    color: #797979;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 15px;
+}
+.left-btn{
+    padding:0 10px;
+    &:active{
+        .nav{display: block;}
+    }
+    .line{
+        width:18px;
+        height: 48px;
+        position:relative;
+        li{
+            position:absolute;
+            width:18px;
+            height:1.5px;
+            background-color: #fff;
+            transition:.5s;
+             transform-origin:left center;
+        }
+        li:nth-child(1){
+            top:18px;
+        }
+        li:nth-child(2){
+            top:24px;
+        }
+        li:nth-child(3){
+            top:30px;
+        }
+        &:hover{
+            li:nth-child(1){
+                transform: rotateZ(40deg);
+            }
+            li:nth-child(2){
+                opacity:0;
+            }
+            li:nth-child(3){
+                transform: rotateZ(-40deg);
+            }
+        }
+    }
+     
+    .nav{
+        display: none;
+        position:absolute;
+        top:48px;
+        left:0;
+        right:0;
+        bottom:0;
+        background-color: #000;
+        li{
+            width:80%;
+            margin:0 auto;
+            border-bottom:1px solid #272727;
+            a{
+                display: block;
+                line-height: 44px;
+                font-size:14px;
+            }
+            &:last-child a{display: inline-block;}
+            &:hover a{color:rgb(175, 174, 174);}
+            span{margin-left: 10px;color:#fff;}
+        }
+    }
+}
+
+.logo{
+    a{
+        text-indent:-9999px;
+        display: block;
+        overflow: hidden;
+        width:122px;
+        height:32px;
+        background-image: url(../img/dff63979.sprites-index@2x.png);
+        background-size:400px 400px;
+    }
+    &:hover{opacity:.7;}
+}
+.right-list{
+    padding:0 10px;
+    position: relative;
+    &:hover{
+        .r-list{display: block;}
+    }
+    .right-icon{
+        line-height:48px;
+        i{
+            color:#ccc;
+            font-size: 20px;
+            &:hover{
+                color:rgb(165, 164, 164);
+            }
+        }
+    }
+    .r-list{
+        display: none;
+        position: absolute;
+        top:48px;
+        right:0;
+        padding:10px 20px;
+        p{
+            line-height: 81px;
+            border-bottom:1px solid #ccc;
+            width:443px;
+            text-align:center;
+            margin:0 auto;
+        }
+        li{
+            width:403px;
+            border-bottom:1px solid #E7E7E7;
+            padding-left:20px;
+            margin:0 auto;
+        }
+        a{
+            color:#949494;
+            display: block;
+            line-height: 50px;
+            i{color:#949494;margin-right: 10px;}
+            &:hover i{
+                color:#E62878;
+            }
+            &:hover{color:#E62878;text-decoration:underline;}
+        }
+    }
+    .r-list::after{
+        content:"";
+        display: block;
+        position:absolute;
+        top:-10px;
+        right:8px;
+        border:10px solid transparent;
+        border-top:none;
+        border-bottom-color:#fff;
+    }
+    
+}
+@media only screen{
+    @media (min-width:768px){
+        .left-btn{
+            order:2;
+            flex:auto;
+            .nav{
+                display:flex;
+                position: static;
+                justify-content: space-around;
+                li{
+                    width:auto;
+                    border-bottom:none;
+                    
+                }
+                span{display: none;}
+            }
+            .line{display:none;}
+        }
+        .logo{order:1;}
+        .right-list{
+            order:3;
+            .r-list{
+                border:1px solid #ccc;
+                box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+                border-radius: 5px;
+                p{width:258px;}
+                li{
+                    width:258px;
+                }
+            }
+            .r-list::after{
+                right:8px;
+            }
+        }
+    }
+}
